@@ -15,6 +15,12 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
 header {
   text-align: center;
   padding: 20px 0;
@@ -26,6 +32,11 @@ header {
 
 header h1 {
   margin-bottom: 10px;
+}
+
+header.dark-mode {
+  background-color: #333;
+  color: #e0e0e0;
 }
 
 main {
@@ -57,12 +68,18 @@ section h3 {
   color: #1a237e;
 }
 
+section.dark-mode {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
 .activity-card {
   margin-bottom: 15px;
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
+  position: relative;
 }
 
 .activity-card h4 {
@@ -70,8 +87,40 @@ section h3 {
   color: #0066cc;
 }
 
-.activity-card p {
-  margin-bottom: 8px;
+.activity-card .toggle-details {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.activity-card .toggle-details:hover {
+  background-color: #3949ab;
+}
+
+.activity-card .details {
+  margin-top: 10px;
+}
+
+.activity-card .details.hidden {
+  display: none;
+}
+
+/* Activity card styles for dark mode */
+.activity-card.dark-mode {
+  background-color: #1e1e1e; /* Fundo escuro */
+  color: #e0e0e0; /* Texto claro */
+  border: 1px solid #333; /* Borda escura */
+}
+
+.activity-card.dark-mode h4 {
+  color: #90caf9; /* Título com cor azul clara */
 }
 
 .form-group {
@@ -108,6 +157,15 @@ button:hover {
   background-color: #3949ab;
 }
 
+button.dark-mode {
+  background-color: #555;
+  color: #e0e0e0;
+}
+
+button.dark-mode:hover {
+  background-color: #777;
+}
+
 .message {
   margin-top: 20px;
   padding: 10px;
@@ -141,4 +199,45 @@ footer {
   margin-top: 30px;
   padding: 20px;
   color: #666;
+}
+
+/* Header container for flex alignment */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;/* Cor diferente do banner */
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* Header titles styling */
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button styling */
+#dark-mode-toggle {
+  background-color: black; /* Cor diferente para o botão */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#dark-mode-toggle:hover {
+  background-color: #3949ab;
+}
+
+/* Dark mode styles for the button */
+#dark-mode-toggle.dark-mode {
+  background-color: white; /* Fundo branco no modo escuro */
+  color: black; /* Texto preto no modo escuro */
+}
+
+#dark-mode-toggle.dark-mode:hover {
+  background-color: #f0f0f0; /* Fundo cinza claro ao passar o mouse */
 }
