@@ -123,6 +123,30 @@ section.dark-mode {
   color: #90caf9; /* Título com cor azul clara */
 }
 
+.activity-card .details p {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.activity-card .details strong {
+  color: #1a237e; /* Destaque para os títulos */
+}
+
+.activity-card .details .participants {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f1f8e9; /* Fundo claro para destacar participantes */
+  border: 1px solid #c5e1a5;
+  border-radius: 5px;
+  color: #33691e;
+}
+
+.activity-card.dark-mode .details .participants {
+  background-color: #2e7d32; /* Fundo escuro no modo dark */
+  color: #e8f5e9; /* Texto claro no modo dark */
+  border: 1px solid #81c784;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
