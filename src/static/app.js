@@ -20,11 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Add participants list
+        const participantsList = details.participants.length > 0
+          ? `<p><strong>Participants:</strong> ${details.participants.join(", ")}</p>`
+          : `<p><strong>Participants:</strong> No participants yet</p>`;
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          ${participantsList}
         `;
 
         activitiesList.appendChild(activityCard);
@@ -47,20 +53,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const email = document.getElementById("email").value;
     const activity = document.getElementById("activity").value;
-  // Email validation using regex
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    messageDiv.textContent = "Please enter a valid email address.";
-    messageDiv.className = "error";
-    messageDiv.classList.remove("hidden");
+    // Email validation using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      messageDiv.textContent = "Please enter a valid email address.";
+      messageDiv.className = "error";
+      messageDiv.classList.remove("hidden");
 
-    // Hide message after 5 seconds
-    setTimeout(() => {
-      messageDiv.classList.add("hidden");
-    }, 5000);
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        messageDiv.classList.add("hidden");
+      }, 5000);
 
-    return; // Stop form submission if email is invalid
-  }
+      return; // Stop form submission if email is invalid
+    }
 
     try {
       const response = await fetch(
