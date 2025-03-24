@@ -47,6 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const email = document.getElementById("email").value;
     const activity = document.getElementById("activity").value;
+  // Email validation using regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    messageDiv.textContent = "Please enter a valid email address.";
+    messageDiv.className = "error";
+    messageDiv.classList.remove("hidden");
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      messageDiv.classList.add("hidden");
+    }, 5000);
+
+    return; // Stop form submission if email is invalid
+  }
 
     try {
       const response = await fetch(
